@@ -142,10 +142,5 @@ set(Rogue-Header
 	)
 
 # Build the rogue dynamic library
-add_library(game SHARED ${Rogue-Source} ${Rogue-Header})
-set_target_properties(game PROPERTIES
-	PREFIX ""
-	LIBRARY_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/Debug
-	LIBRARY_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/Release
-)
-target_link_libraries(game ${RogueLinkerFlags})
+add_library(rogue SHARED ${Rogue-Source} ${Rogue-Header})
+target_link_libraries(rogue ${RogueLinkerFlags})
