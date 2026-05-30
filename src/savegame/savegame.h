@@ -32,7 +32,50 @@ typedef struct
 {
 	char *funcStr;
 	byte *funcPtr;
+} fnlist_entry_t;
+
+/*
+ * Connects a human readable
+ * function signature with
+ * the corresponding pointer
+ */
+typedef struct
+{
+	const char *name;
+	const fnlist_entry_t *start;
+	const fnlist_entry_t *end;
 } functionList_t;
+
+typedef struct
+{
+	int ofs;
+	const functionList_t *fnlist;
+} fplist_entry_t;
+
+/*
+ * Maps field offsets to function lists
+ * Used for getting the correct function list
+ * for the given function pointer field
+ */
+typedef struct
+{
+	const fplist_entry_t *start;
+	const fplist_entry_t *end;
+} fptrList_t;
+
+/*
+ * Static context for a struct type
+ * Used for de/serializing structs
+ */
+typedef struct
+{
+	const field_t *fields_start;
+	const field_t *fields_end;
+
+	const fptrList_t *fplist;
+
+	size_t size;
+} structdef_t;
 
 /*
  * Connects a human readable
