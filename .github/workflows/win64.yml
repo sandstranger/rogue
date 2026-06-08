@@ -42,7 +42,7 @@ jobs:
       shell: msys2 {0}
       run: |
         # Public runners come with 4 CPUs.
-        make -j4
+        make -j4 DEBUG=1
     - name: Create testbuild package
       shell: msys2 {0}
       run: |

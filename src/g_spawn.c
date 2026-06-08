@@ -304,10 +304,7 @@ G_FixTeams(void)
 {
 	edict_t *e, *e2, *chain;
 	int i, j;
-	int c, c2;
-
-	c = 0;
-	c2 = 0;
+	int c = 0;
 
 	for (i = 1, e = g_edicts + i; i < globals.num_edicts; i++, e++)
 	{
@@ -330,7 +327,6 @@ G_FixTeams(void)
 				e->teamchain = NULL;
 				e->flags &= ~FL_TEAMSLAVE;
 				c++;
-				c2++;
 
 				for (j = 1, e2 = g_edicts + j;
 					 j < globals.num_edicts;
@@ -353,7 +349,6 @@ G_FixTeams(void)
 
 					if (!strcmp(e->team, e2->team))
 					{
-						c2++;
 						chain->teamchain = e2;
 						e2->teammaster = e;
 						e2->teamchain = NULL;
