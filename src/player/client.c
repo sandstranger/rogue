@@ -1988,7 +1988,7 @@ ClientUserinfoChanged(edict_t *ent, char *userinfo)
 	/* save off the userinfo in case we want to check something later */
 	if (userinfo != ent->client->pers.userinfo)
 	{
-		strncpy(ent->client->pers.userinfo, userinfo, sizeof(ent->client->pers.userinfo) - 1);
+		Q_strlcpy(ent->client->pers.userinfo, userinfo, sizeof(ent->client->pers.userinfo) - 1);
 	}
 }
 

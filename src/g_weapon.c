@@ -850,6 +850,10 @@ fire_rail(edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick)
 				T_Damage(tr.ent, self, self, aimdir, tr.endpos, tr.plane.normal,
 						damage, kick, 0, MOD_RAILGUN);
 			}
+			else
+			{
+				ignore = NULL;
+			}
 		}
 
 		VectorCopy(tr.endpos, from);
